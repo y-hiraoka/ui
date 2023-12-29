@@ -17,7 +17,7 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
           scope: "@${{ github.repository_owner }}"
       - run: npm ci
-      - run: npm run build --filter @${{ github.repository_owner }}/ui
+      - run: npm run build -w packages/ui
       - run: npm publish ./packages/ui --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
