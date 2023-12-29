@@ -23,8 +23,8 @@
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
-    "@y-hiraoka/eslint-config": "workspace:*",
-    "@y-hiraoka/typescript-config": "workspace:*",
+    "@y-hiraoka/eslint-config": "*",
+    "@y-hiraoka/typescript-config": "*",
     "@types/eslint": "^8.44.7",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",

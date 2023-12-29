@@ -8,14 +8,18 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@y-hiraoka/eslint-config": "workspace:*",
-    "@y-hiraoka/typescript-config": "workspace:*",
+    "@y-hiraoka/eslint-config": "*",
+    "@y-hiraoka/typescript-config": "*",
     "prettier": "^3.1.0",
     "tsup": "^8.0.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.9.0",
+  "packageManager": "npm@9.8.1",
   "engines": {
     "node": ">=18"
-  }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
