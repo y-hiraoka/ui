@@ -1,20 +1,21 @@
 {
   "name": "@y-hiraoka/ui",
   "version": "0.0.0",
+  "type": "module",
   "main": "dist/cjs/index.js",
   "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.js",
-      "node": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.mjs"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs",
+      "node": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.js"
     },
     "./tailwindcss": {
-      "import": "./dist/esm/tailwindcss/index.mjs",
-      "require": "./dist/cjs/tailwindcss/index.js",
-      "node": "./dist/cjs/tailwindcss/index.js",
-      "default": "./dist/esm/tailwindcss/index.mjs"
+      "import": "./dist/esm/tailwindcss/index.js",
+      "require": "./dist/cjs/tailwindcss/index.cjs",
+      "node": "./dist/cjs/tailwindcss/index.cjs",
+      "default": "./dist/esm/tailwindcss/index.js"
     }
   },
   "scripts": {
@@ -23,12 +24,12 @@
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
-    "@y-hiraoka/eslint-config": "*",
-    "@y-hiraoka/typescript-config": "*",
     "@types/eslint": "^8.44.7",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@y-hiraoka/eslint-config": "*",
+    "@y-hiraoka/typescript-config": "*",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
     "react": "^18.2.0",
@@ -47,5 +48,11 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "@types/color": "^3.0.6",
+    "color": "^4.2.3",
+    "react-icons": "^4.12.0",
+    "theme-colors": "^0.1.0"
   }
 }

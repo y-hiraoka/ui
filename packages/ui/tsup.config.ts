@@ -8,6 +8,7 @@ export default defineConfig([
     target: "es2019",
     bundle: false,
     dts: true,
+    sourcemap: true,
     banner: {
       js: '"use client";',
     },
@@ -19,6 +20,7 @@ export default defineConfig([
     target: "es2019",
     bundle: false,
     dts: true,
+    sourcemap: true,
     banner: {
       js: '"use client";',
     },
