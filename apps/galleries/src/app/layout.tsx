@@ -16,7 +16,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-w-max`}>
         <div className="grid grid-cols-[auto_1fr]">
           <div className="p-2">
             <SideNav />
