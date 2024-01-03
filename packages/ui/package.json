@@ -50,6 +50,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
+    "@radix-ui/react-switch": "^1.0.3",
     "@types/color": "^3.0.6",
     "color": "^4.2.3",
     "react-icons": "^4.12.0",

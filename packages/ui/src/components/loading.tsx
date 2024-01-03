@@ -17,11 +17,11 @@ export const Loading: FC<LoadingProps> = ({
       className={classNames(
         "inline-flex items-center space-x-[0.3em]",
         {
-          xs: "text-xs px-3.5 h-8",
-          sm: "text-sm px-3.5 h-9",
-          md: "text-base px-4 h-10",
-          lg: "text-lg px-5 h-11",
-          xl: "text-xl px-5 h-12",
+          xs: "text-xs h-8",
+          sm: "text-sm h-9",
+          md: "text-base h-10",
+          lg: "text-lg h-11",
+          xl: "text-xl h-12",
         }[size],
         {
           main: "text-main-400",
@@ -32,9 +32,9 @@ export const Loading: FC<LoadingProps> = ({
         className
       )}
     >
-      <span className="w-[1em] h-[1em] rounded-full bg-current duration-0 animate-loading-dot-bounce" />
-      <span className="w-[1em] h-[1em] rounded-full bg-current animate-loading-dot-bounce animation-delay-200" />
-      <span className="w-[1em] h-[1em] rounded-full bg-current animate-loading-dot-bounce animation-delay-400" />
+      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current duration-0 animate-loading-dot-bounce" />
+      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current animate-loading-dot-bounce animation-delay-200" />
+      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current animate-loading-dot-bounce animation-delay-400" />
     </span>
   );
 };

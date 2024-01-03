@@ -45,4 +45,8 @@ const navItems: { name: string; href: string }[] = [
     name: "Loading",
     href: "/components/loading",
   },
+  {
+    name: "Switch",
+    href: "/components/switch",
+  },
 ];
