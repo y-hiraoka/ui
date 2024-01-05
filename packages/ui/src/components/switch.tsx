@@ -1,5 +1,5 @@
 import * as RadixSwitch from "@radix-ui/react-switch";
-import { FC, ReactNode, useId } from "react";
+import { FC, ReactNode } from "react";
 import { classNames } from "../lib/classnames";
 
 export type SwitchProps = {
@@ -31,24 +31,27 @@ export const Switch: FC<SwitchProps> = ({
   name,
   value,
 }) => {
-  const _id = useId();
-
   return (
-    <div className={classNames("flex items-center space-x-2", className)}>
+    <label
+      className={classNames(
+        "flex items-center space-x-2 cursor-pointer has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50",
+        className
+      )}
+      htmlFor={id}
+    >
       {label && (
-        <label
+        <span
           className={classNames(
-            "font-medium leading-none cursor-pointer",
+            "font-medium leading-none",
             {
               sm: "text-xs",
               md: "text-sm",
               lg: "text-base",
             }[size]
           )}
-          htmlFor={id || _id}
         >
           {label}
-        </label>
+        </span>
       )}
       <RadixSwitch.Root
         checked={checked}
@@ -70,7 +73,7 @@ export const Switch: FC<SwitchProps> = ({
             sub: "data-[state=checked]:bg-sub-500 data-[state=checked]:border-sub-400",
           }[color]
         )}
-        id={id || _id}
+        id={id}
       >
         <RadixSwitch.Thumb
           className={classNames(
@@ -87,6 +90,6 @@ export const Switch: FC<SwitchProps> = ({
           )}
         />
       </RadixSwitch.Root>
-    </div>
+    </label>
   );
 };
