@@ -42,6 +42,8 @@ export const preset = (options: PresetOptions): Config => {
       colors: {
         transparent: defaultColors.transparent,
         current: defaultColors.current,
+        white: defaultColors.white,
+        black: defaultColors.black,
         "glass-white": "#ffffff",
         main: colorRecordToCssVarRecord(
           mainColorScale,

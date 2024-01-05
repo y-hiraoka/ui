@@ -49,4 +49,8 @@ const navItems: { name: string; href: string }[] = [
     name: "Switch",
     href: "/components/switch",
   },
+  {
+    name: "Select",
+    href: "/components/select",
+  },
 ];

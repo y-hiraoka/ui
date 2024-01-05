@@ -6,7 +6,7 @@ export default defineConfig([
     entry: ["src", "!src/**/*.test.{ts,tsx}"],
     outDir: "dist/esm",
     target: "es2019",
-    bundle: false,
+    bundle: true,
     dts: true,
     sourcemap: true,
     banner: {
