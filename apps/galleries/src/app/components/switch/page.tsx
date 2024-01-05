@@ -10,7 +10,7 @@ const Page: FC = () => {
       {sizes.map((size) =>
         colors.map((color) => (
           <div key={`${size}-${color}`}>
-            <Switch size={size} color={color} />
+            <Switch size={size} color={color} label="Component" />
           </div>
         ))
       )}

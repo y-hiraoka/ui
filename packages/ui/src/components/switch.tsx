@@ -21,7 +21,8 @@ export const Switch: FC<SwitchProps> = ({
   id,
   label,
   className,
-  color = "normal",
+  size = "md",
+  color = "main",
   defaultChecked,
   checked,
   onCheckedChange,
@@ -33,24 +34,58 @@ export const Switch: FC<SwitchProps> = ({
   const _id = useId();
 
   return (
-    <div className={classNames(className)}>
-      <label
-        className="text-white text-[15px] leading-none pr-[15px]"
-        htmlFor={id || _id}
-      >
-        {label}
-      </label>
+    <div className={classNames("flex items-center space-x-2", className)}>
+      {label && (
+        <label
+          className={classNames(
+            "font-medium leading-none cursor-pointer",
+            {
+              sm: "text-xs",
+              md: "text-sm",
+              lg: "text-base",
+            }[size]
+          )}
+          htmlFor={id || _id}
+        >
+          {label}
+        </label>
+      )}
       <RadixSwitch.Root
         checked={checked}
         defaultChecked={defaultChecked}
+        onCheckedChange={onCheckedChange}
         disabled={disabled}
         required={required}
         name={name}
         value={value}
-        className="w-[42px] h-[25px] bg-blackA6 rounded-full relative shadow-[0_2px_10px] shadow-blackA4 focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-black outline-none cursor-default"
+        className={classNames(
+          "rounded-full relative border border-gray-200 bg-gray-100 transition-colors",
+          {
+            sm: "w-7 h-4",
+            md: "w-9 h-5",
+            lg: "w-11 h-6",
+          }[size],
+          {
+            main: "data-[state=checked]:bg-main-500 data-[state=checked]:border-main-400",
+            sub: "data-[state=checked]:bg-sub-500 data-[state=checked]:border-sub-400",
+          }[color]
+        )}
         id={id || _id}
       >
-        <RadixSwitch.Thumb className="block w-[21px] h-[21px] bg-white rounded-full shadow-[0_2px_2px] shadow-blackA4 transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]" />
+        <RadixSwitch.Thumb
+          className={classNames(
+            "block bg-gray-200 border border-gray-300 rounded-full transition-transform duration-100 translate-x-0.5 will-change-transform",
+            {
+              sm: "w-3 h-3 data-[state=checked]:translate-x-3",
+              md: "w-4 h-4 data-[state=checked]:translate-x-4",
+              lg: "w-5 h-5 data-[state=checked]:translate-x-5",
+            }[size],
+            {
+              main: "data-[state=checked]:bg-main-50 data-[state=checked]:border-main-100",
+              sub: "data-[state=checked]:bg-sub-50 data-[state=checked]:border-sub-100",
+            }[color]
+          )}
+        />
       </RadixSwitch.Root>
     </div>
   );
