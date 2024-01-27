@@ -35,7 +35,7 @@ export const Switch: FC<SwitchProps> = ({
     <label
       className={classNames(
         "flex items-center space-x-2 cursor-pointer has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50",
-        className
+        className,
       )}
       htmlFor={id}
     >
@@ -47,7 +47,7 @@ export const Switch: FC<SwitchProps> = ({
               sm: "text-xs",
               md: "text-sm",
               lg: "text-base",
-            }[size]
+            }[size],
           )}
         >
           {label}
@@ -71,7 +71,7 @@ export const Switch: FC<SwitchProps> = ({
           {
             main: "data-[state=checked]:bg-main-500 data-[state=checked]:border-main-400",
             sub: "data-[state=checked]:bg-sub-500 data-[state=checked]:border-sub-400",
-          }[color]
+          }[color],
         )}
         id={id}
       >
@@ -86,7 +86,7 @@ export const Switch: FC<SwitchProps> = ({
             {
               main: "data-[state=checked]:bg-main-50 data-[state=checked]:border-main-100",
               sub: "data-[state=checked]:bg-sub-50 data-[state=checked]:border-sub-100",
-            }[color]
+            }[color],
           )}
         />
       </RadixSwitch.Root>

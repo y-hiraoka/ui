@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { Switch } from "@y-hiraoka/ui";
+import { FC } from "react";
 
 const sizes = ["sm", "md", "lg"] as const;
 const colors = ["main", "sub"] as const;
@@ -19,8 +19,8 @@ const Page: FC = () => {
                 disabled={isDisabled}
               />
             </div>
-          ))
-        )
+          )),
+        ),
       )}
     </div>
   );

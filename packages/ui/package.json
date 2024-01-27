@@ -8,33 +8,30 @@
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.cjs",
-      "node": "./dist/cjs/index.cjs",
+      "types": "./dist/esm/index.d.ts",
       "default": "./dist/esm/index.js"
     },
     "./tailwindcss": {
       "import": "./dist/esm/tailwindcss/index.js",
       "require": "./dist/cjs/tailwindcss/index.cjs",
-      "node": "./dist/cjs/tailwindcss/index.cjs",
+      "types": "./dist/esm/tailwindcss/index.d.ts",
       "default": "./dist/esm/tailwindcss/index.js"
     }
   },
   "scripts": {
-    "build": "tsup --clean",
-    "dev": "tsup --watch",
-    "lint": "eslint . --max-warnings 0"
+    "build": "tsup --clean & tsc --emitDeclarationOnly",
+    "dev": "tsup --watch & tsc --watch --emitDeclarationOnly",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@types/eslint": "^8.44.7",
-    "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@y-hiraoka/eslint-config": "*",
     "@y-hiraoka/typescript-config": "*",
     "autoprefixer": "^10.4.16",
-    "eslint": "^8.53.0",
     "react": "^18.2.0",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5.2.2"
+    "tailwindcss": "^3.4.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",

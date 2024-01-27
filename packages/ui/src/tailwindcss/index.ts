@@ -1,11 +1,11 @@
+import Color from "color";
 import { Config } from "tailwindcss";
 import defaultColors from "tailwindcss/colors";
 import { getColors } from "theme-colors";
-import { selectHighContrastColors } from "./select-high-contrast-colors";
-import Color from "color";
-import { gridAutoLayoutPlugin } from "./utilities/grid-auto-layout";
-import { loadingPlugin } from "./components/loading";
 import { drawerPlugin } from "./components/drawer";
+import { loadingPlugin } from "./components/loading";
+import { selectHighContrastColors } from "./select-high-contrast-colors";
+import { gridAutoLayoutPlugin } from "./utilities/grid-auto-layout";
 
 type PresetOptions = {
   colors?: {
@@ -21,7 +21,7 @@ export const preset = (options: PresetOptions): Config => {
   const textPrimary = "#000";
   const textPrimaryInvert = "#fff";
   const textSecondary = "#777";
-  const textSecondaryInvert = "#ddd";
+  // const textSecondaryInvert = "#ddd";
   const mainColorScale = getColors(options.colors?.main ?? "#805ad5");
   const subColorScale = getColors(options.colors?.sub ?? "#2fd72f");
   const grayColorScale = getColors(options.colors?.gray ?? "#9da7ba");
@@ -30,12 +30,12 @@ export const preset = (options: PresetOptions): Config => {
   const mainHighContrastTextColors = selectHighContrastColors(
     mainColorScale,
     textPrimary,
-    textPrimaryInvert
+    textPrimaryInvert,
   );
   const subHighContrastTextColors = selectHighContrastColors(
     subColorScale,
     textPrimary,
-    textPrimaryInvert
+    textPrimaryInvert,
   );
 
   return {
@@ -49,23 +49,23 @@ export const preset = (options: PresetOptions): Config => {
         "glass-white": "#ffffff",
         main: colorRecordToCssVarRecord(
           mainColorScale,
-          (key) => `--stui-c-main-${key}`
+          (key) => `--stui-c-main-${key}`,
         ),
         sub: colorRecordToCssVarRecord(
           subColorScale,
-          (key) => `--stui-c-sub-${key}`
+          (key) => `--stui-c-sub-${key}`,
         ),
         gray: colorRecordToCssVarRecord(
           grayColorScale,
-          (key) => `--stui-c-gray-${key}`
+          (key) => `--stui-c-gray-${key}`,
         ),
         danger: colorRecordToCssVarRecord(
           dangerColorScale,
-          (key) => `--stui-c-danger-${key}`
+          (key) => `--stui-c-danger-${key}`,
         ),
         warning: colorRecordToCssVarRecord(
           warningColorScale,
-          (key) => `--stui-c-warning-${key}`
+          (key) => `--stui-c-warning-${key}`,
         ),
       },
       extend: {
@@ -83,12 +83,12 @@ export const preset = (options: PresetOptions): Config => {
 
 const colorRecordToCssVarRecord = (
   record: Record<string, string>,
-  cssVarTemplate: (key: string) => string
+  cssVarTemplate: (key: string) => string,
 ) =>
   Object.fromEntries(
     Object.entries(record).map(([key, value]) => [
       key,
       // prettier-ignore
       `rgb(var(${cssVarTemplate(key)}, ${Color(value).rgb().array().map(Math.round).join(" ")}) / <alpha-value>)`,
-    ])
+    ]),
   );

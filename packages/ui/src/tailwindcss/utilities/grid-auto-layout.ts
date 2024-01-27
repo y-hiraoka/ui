@@ -7,7 +7,7 @@ export const gridAutoLayoutPlugin = plugin(({ matchUtilities, theme }) => {
         gridTemplateColumns: `repeat(auto-fill, minmax(${value}, 1fr))`,
       }),
     },
-    { values: theme("spacing") }
+    { values: theme("spacing") },
   );
 
   matchUtilities(
@@ -16,6 +16,6 @@ export const gridAutoLayoutPlugin = plugin(({ matchUtilities, theme }) => {
         gridTemplateColumns: `repeat(auto-fit, minmax(${value}, 1fr))`,
       }),
     },
-    { values: theme("spacing") }
+    { values: theme("spacing") },
   );
 });

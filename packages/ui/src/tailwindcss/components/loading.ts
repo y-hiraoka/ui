@@ -1,6 +1,6 @@
 import plugin from "tailwindcss/plugin";
 
-export const loadingPlugin = plugin(({ addComponents, theme }) => {
+export const loadingPlugin = plugin(({ addComponents }) => {
   addComponents({
     "@keyframes loading-dot-bounce": {
       "0%": { transform: "scale(1)", opacity: "1" },

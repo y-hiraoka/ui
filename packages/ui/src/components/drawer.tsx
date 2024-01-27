@@ -1,3 +1,5 @@
+import { Transition } from "@headlessui/react";
+import * as Dialog from "@radix-ui/react-dialog";
 import {
   FC,
   Fragment,
@@ -6,10 +8,8 @@ import {
   useContext,
   useState,
 } from "react";
-import * as Dialog from "@radix-ui/react-dialog";
-import { IconButton } from ".";
 import { MdClose } from "react-icons/md";
-import { Transition } from "@headlessui/react";
+import { IconButton } from "./icon-button";
 
 const IsOpenContext = createContext(false);
 
@@ -74,7 +74,7 @@ export const DrawerContent: FC<{
           leaveTo="-translate-x-full"
         >
           <Dialog.Content className="fixed w-72 h-screen top-0 left-0 z-20 p-2">
-            <div className="bg-white h-full w-full rounded-md relative p-2">
+            <div className="bg-white h-full w-full rounded-md relative p-2 shadow">
               <Dialog.Title className="sr-only">{drawerTitle}</Dialog.Title>
               <Dialog.Description className="sr-only">
                 {drawerDescription}

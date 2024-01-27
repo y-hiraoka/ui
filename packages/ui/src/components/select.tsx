@@ -1,6 +1,6 @@
 import { ComponentProps, forwardRef } from "react";
-import { classNames } from "../lib/classnames";
 import { MdExpandMore } from "react-icons/md";
+import { classNames } from "../lib/classnames";
 
 export type SelectProps = {
   size?: "sm" | "md" | "lg";
@@ -19,7 +19,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               md: "pl-2 pr-6 h-9 rounded-md text-sm",
               lg: "pl-2 pr-6 h-10 rounded-md text-base",
             }[size],
-            className
+            className,
           )}
           {...props}
         />
@@ -30,10 +30,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               sm: "text-xs",
               md: "text-sm",
               lg: "text-base",
-            }[size]
+            }[size],
           )}
         />
       </div>
     );
-  }
+  },
 );

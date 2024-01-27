@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { Select } from "@y-hiraoka/ui";
+import { FC } from "react";
 
 const sizes = ["sm", "md", "lg"] as const;
 const colors = ["main", "sub"] as const;
@@ -16,7 +16,7 @@ const Page: FC = () => {
               <option>option 3</option>
             </Select>
           </div>
-        ))
+        )),
       )}
     </div>
   );

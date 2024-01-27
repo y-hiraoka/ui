@@ -11,7 +11,7 @@ export type IconButtonProps = Omit<ComponentProps<"button">, "children"> & {
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(
     { variant = "solid", size = "md", color = "normal", icon, ...props },
-    ref
+    ref,
   ) {
     return (
       <button
@@ -60,12 +60,13 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                 "bg-danger-500/15 text-danger-500/90 border border-danger-500/20 backdrop-blur-sm enabled:hover:bg-danger-500/20 enabled:hover:border-danger-500/25 enabled:active:bg-danger-500/25 enabled:active:border-danger-500/30",
             }[color],
           }[variant],
-          props.className
+          props.className,
         )}
+        // eslint-disable-next-line react/button-has-type
         type={props.type ?? "button"}
       >
         <span>{icon}</span>
       </button>
     );
-  }
+  },
 );

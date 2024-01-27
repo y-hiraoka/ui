@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { Loading } from "@y-hiraoka/ui";
+import { FC } from "react";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
 const colors = ["main", "sub", "normal", "danger"] as const;
@@ -12,7 +12,7 @@ const Page: FC = () => {
           <div key={`${size}-${color}`}>
             <Loading size={size} color={color} />
           </div>
-        ))
+        )),
       )}
     </div>
   );

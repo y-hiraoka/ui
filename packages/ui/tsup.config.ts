@@ -6,9 +6,7 @@ export default defineConfig([
     entry: ["src", "!src/**/*.test.{ts,tsx}"],
     outDir: "dist/esm",
     target: "es2019",
-    bundle: true,
-    dts: true,
-    sourcemap: true,
+    bundle: false,
     banner: {
       js: '"use client";',
     },
@@ -19,8 +17,6 @@ export default defineConfig([
     outDir: "dist/cjs",
     target: "es2019",
     bundle: false,
-    dts: true,
-    sourcemap: true,
     banner: {
       js: '"use client";',
     },

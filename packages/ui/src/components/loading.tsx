@@ -29,7 +29,7 @@ export const Loading: FC<LoadingProps> = ({
           normal: "text-gray-500",
           danger: "text-danger-400",
         }[color],
-        className
+        className,
       )}
     >
       <span className="w-[0.8em] h-[0.8em] rounded-full bg-current loading-dot-bounce" />
