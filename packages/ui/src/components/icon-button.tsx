@@ -1,32 +1,16 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { classNames } from "../lib/classnames";
-import { Loading } from "..";
 
-export type ButtonProps = ComponentProps<"button"> & {
+export type IconButtonProps = Omit<ComponentProps<"button">, "children"> & {
   variant?: "outline" | "solid" | "ghost" | "glass";
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   color?: "main" | "sub" | "normal" | "danger";
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
-  isLoading?: boolean;
-  fullWidth?: boolean;
-  justify?: "start" | "center" | "end" | "between";
+  icon: ReactNode;
 };
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  function Button(
-    {
-      variant = "solid",
-      size = "md",
-      color = "normal",
-      startIcon,
-      endIcon,
-      isLoading,
-      fullWidth,
-      justify = "center",
-      children,
-      ...props
-    },
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  function IconButton(
+    { variant = "solid", size = "md", color = "normal", icon, ...props },
     ref
   ) {
     return (
@@ -34,20 +18,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
         ref={ref}
         className={classNames(
-          "inline-flex rounded-md leading-none items-center font-bold transition-colors relative disabled:cursor-not-allowed disabled:opacity-50",
-          fullWidth && "w-full",
+          "inline-flex rounded-md leading-none items-center justify-center font-bold transition-colors relative disabled:cursor-not-allowed disabled:opacity-50",
           {
-            start: "justify-start",
-            center: "justify-center",
-            end: "justify-end",
-            between: "justify-between",
-          }[justify],
-          {
-            xs: "text-xs px-3.5 h-8 space-x-1.5",
-            sm: "text-sm px-3.5 h-9 space-x-1.5",
-            md: "text-base px-4 h-10 space-x-2",
-            lg: "text-lg px-5 h-11 space-x-2.5",
-            xl: "text-xl px-5 h-12 space-x-2.5",
+            xs: "text-sm w-8 h-8",
+            sm: "text-base w-9 h-9",
+            md: "text-lg w-10 h-10",
+            lg: "text-xl w-11 h-11",
+            xl: "text-2xl w-12 h-12",
           }[size],
           {
             outline: {
@@ -85,23 +62,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           }[variant],
           props.className
         )}
-        disabled={isLoading || props.disabled}
         type={props.type ?? "button"}
       >
-        {startIcon && (
-          <span style={{ opacity: isLoading ? 0 : undefined }}>
-            {startIcon}
-          </span>
-        )}
-        <span style={{ opacity: isLoading ? 0 : undefined }}>{children}</span>
-        {endIcon && (
-          <span style={{ opacity: isLoading ? 0 : undefined }}>{endIcon}</span>
-        )}
-        {isLoading && (
-          <span className="absolute inset-0 inline-flex items-center justify-center">
-            <Loading color={color} size={size} />
-          </span>
-        )}
+        <span>{icon}</span>
       </button>
     );
   }

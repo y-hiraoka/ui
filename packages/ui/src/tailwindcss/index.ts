@@ -1,9 +1,11 @@
 import { Config } from "tailwindcss";
 import defaultColors from "tailwindcss/colors";
-import plugin from "tailwindcss/plugin";
 import { getColors } from "theme-colors";
 import { selectHighContrastColors } from "./select-high-contrast-colors";
 import Color from "color";
+import { gridAutoLayoutPlugin } from "./utilities/grid-auto-layout";
+import { loadingPlugin } from "./components/loading";
+import { drawerPlugin } from "./components/drawer";
 
 type PresetOptions = {
   colors?: {
@@ -73,43 +75,9 @@ export const preset = (options: PresetOptions): Config => {
           primary: textPrimary,
           secondary: textSecondary,
         },
-        keyframes: {
-          "loading-dot-bounce": {
-            "0%": { transform: "scale(1)", opacity: "1" },
-            "100%": { transform: "scale(0.8)", opacity: "0.75" },
-          },
-        },
-        animation: {
-          "loading-dot-bounce":
-            "loading-dot-bounce 0.75s ease-in-out infinite alternate",
-        },
-      },
-      animationDelay: {
-        200: "200ms",
-        400: "400ms",
       },
     },
-    plugins: [
-      plugin(({ matchUtilities, theme }) => {
-        matchUtilities(
-          {
-            "grid-cols-auto-fill": (value) => ({
-              gridTemplateColumns: `repeat(auto-fill, minmax(${value}, 1fr))`,
-            }),
-          },
-          { values: theme("spacing") }
-        );
-
-        matchUtilities(
-          {
-            "animation-delay": (value) => ({
-              "animation-delay": value,
-            }),
-          },
-          { values: theme("animationDelay") }
-        );
-      }),
-    ],
+    plugins: [gridAutoLayoutPlugin, loadingPlugin, drawerPlugin],
   };
 };
 

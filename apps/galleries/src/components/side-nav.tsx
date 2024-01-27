@@ -42,6 +42,10 @@ const navItems: { name: string; href: string }[] = [
     href: "/components/button",
   },
   {
+    name: "IconButton",
+    href: "/components/icon-button",
+  },
+  {
     name: "Loading",
     href: "/components/loading",
   },
@@ -52,5 +56,9 @@ const navItems: { name: string; href: string }[] = [
   {
     name: "Select",
     href: "/components/select",
+  },
+  {
+    name: "Drawer",
+    href: "/components/drawer",
   },
 ];

@@ -32,9 +32,9 @@ export const Loading: FC<LoadingProps> = ({
         className
       )}
     >
-      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current animate-loading-dot-bounce" />
-      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current animate-loading-dot-bounce animation-delay-200" />
-      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current animate-loading-dot-bounce animation-delay-400" />
+      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current loading-dot-bounce" />
+      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current loading-dot-bounce loading-animation-delay-200" />
+      <span className="w-[0.8em] h-[0.8em] rounded-full bg-current loading-dot-bounce loading-animation-delay-400" />
     </span>
   );
 };
