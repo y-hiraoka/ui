@@ -75,6 +75,9 @@ export const preset = (options: PresetOptions): Config => {
           primary: textPrimary,
           secondary: textSecondary,
         },
+        aria: {
+          "current-page": 'current="page"',
+        },
       },
     },
     plugins: [gridAutoLayoutPlugin, loadingPlugin, drawerPlugin],

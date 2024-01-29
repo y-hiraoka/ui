@@ -27,10 +27,10 @@ export const DrawerRoot: FC<{
   };
 
   return (
-    <IsOpenContext.Provider value={isOpenState}>
+    <IsOpenContext.Provider value={isOpen ?? isOpenState}>
       <Dialog.Root
         defaultOpen={defaultOpen}
-        open={isOpen}
+        open={isOpen ?? isOpenState}
         onOpenChange={onOpenChange}
       >
         {children}

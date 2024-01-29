@@ -21,6 +21,7 @@ module.exports = {
     "import/order": ["warn", { alphabetize: { order: "asc" } }],
     "no-duplicate-imports": "error",
     "@typescript-eslint/explicit-module-boundary-types": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
     "react-hooks/exhaustive-deps": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",

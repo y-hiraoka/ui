@@ -1,7 +1,10 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ["@y-hiraoka/eslint-config/library.js"],
+  extends: [
+    "plugin:tailwindcss/recommended",
+    "@y-hiraoka/eslint-config/library.js",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,

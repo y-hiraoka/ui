@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  NavLink,
+  NavLinkCollapsibleRoot,
+  NavLinkCollapsibleContent,
+  NavLinkCollapsibleTrigger,
+} from "@y-hiraoka/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
@@ -14,6 +20,16 @@ export const SideNav: FC = () => {
           </li>
         ))}
       </ul>
+      <NavLinkCollapsibleRoot>
+        <NavLinkCollapsibleTrigger isCurrent>
+          Test Collapsible
+        </NavLinkCollapsibleTrigger>
+        <NavLinkCollapsibleContent>
+          {navItems.map((item) => (
+            <SideNavLink key={item.href} href={item.href} name={item.name} />
+          ))}
+        </NavLinkCollapsibleContent>
+      </NavLinkCollapsibleRoot>
     </nav>
   );
 };
@@ -22,13 +38,9 @@ const SideNavLink: FC<{ href: string; name: string }> = ({ href, name }) => {
   const pathname = usePathname();
 
   return (
-    <Link
-      className="block w-full p-2 font-bold aria-[current='page']:text-main-500 aria-[current='page']:bg-blue-100 hover:underline"
-      href={href}
-      aria-current={pathname === href ? "page" : undefined}
-    >
+    <NavLink component={Link} isCurrent={pathname === href} href={href}>
       {name}
-    </Link>
+    </NavLink>
   );
 };
 
