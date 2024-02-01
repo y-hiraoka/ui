@@ -51,8 +51,8 @@ export const DrawerContent: FC<{
   const isOpen = useContext(IsOpenContext);
 
   return (
-    <Transition show={isOpen}>
-      <Dialog.Portal forceMount>
+    <Dialog.Portal forceMount>
+      <Transition show={isOpen}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-in-out duration-200"
@@ -73,14 +73,14 @@ export const DrawerContent: FC<{
           leaveFrom="translate-x-0"
           leaveTo="-translate-x-full"
         >
-          <Dialog.Content className="fixed w-72 h-screen top-0 left-0 z-20 p-2">
-            <div className="bg-white h-full w-full rounded-md relative p-2 shadow">
+          <Dialog.Content className="fixed left-0 top-0 z-20 h-screen w-72 p-2">
+            <div className="relative size-full rounded-md bg-white p-2 shadow">
               <Dialog.Title className="sr-only">{drawerTitle}</Dialog.Title>
               <Dialog.Description className="sr-only">
                 {drawerDescription}
               </Dialog.Description>
               {children}
-              <span className="absolute top-1 right-1">
+              <span className="absolute right-1 top-1">
                 <Dialog.Close asChild>
                   <IconButton size="xs" variant="ghost" icon={<MdClose />} />
                 </Dialog.Close>
@@ -88,7 +88,7 @@ export const DrawerContent: FC<{
             </div>
           </Dialog.Content>
         </Transition.Child>
-      </Dialog.Portal>
-    </Transition>
+      </Transition>
+    </Dialog.Portal>
   );
 };

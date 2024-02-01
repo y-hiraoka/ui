@@ -2,7 +2,6 @@ import { Transition } from "@headlessui/react";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import {
   FC,
-  Fragment,
   ReactNode,
   createContext,
   forwardRef,
@@ -40,10 +39,10 @@ export const NavLink = forwardRef(function NavLink(
       {...rest}
       ref={ref}
       className={classNames(
-        "text-sm font-medium flex aria-current-page:font-bold h-9 w-full items-center transition-colors",
+        "text-sm font-medium leading-none flex aria-current-page:font-bold h-9 w-full items-center transition-colors hover:bg-gray-500/10 rounded-e-full",
         isInnerCollapsible
           ? "pl-4 pr-3 border-l-2 aria-current-page:border-main-400 aria-current-page:text-main-500"
-          : "hover:bg-gray-500/10 px-3 aria-current-page:bg-main-500/20 rounded-full aria-current-page:text-main-700",
+          : "px-3 aria-current-page:bg-main-500/20 aria-current-page:text-main-700",
         className,
       )}
       aria-current={isCurrent ? "page" : undefined}
@@ -122,10 +121,11 @@ export const NavLinkCollapsibleTrigger = (({
       <Component
         {...rest}
         className={classNames(
-          "text-sm font-medium flex h-9 w-full px-3 items-center hover:bg-gray-500/10 rounded-full transition-colors justify-between",
-          isCurrent && "bg-main-500/20 text-main-700",
+          "text-sm font-medium flex h-9 w-full px-3 items-center hover:bg-gray-500/10 rounded-e-full transition-colors justify-between",
+          "aria-[current=true]:font-bold aria-[current=true]:bg-main-500/20 aria-[current=true]:text-main-700",
           className,
         )}
+        aria-current={isCurrent}
       >
         <span>{children}</span>
         <span
@@ -134,7 +134,7 @@ export const NavLinkCollapsibleTrigger = (({
             isOpen && "rotate-90",
           )}
         >
-          <MdChevronRight />
+          <MdChevronRight className="text-lg" />
         </span>
       </Component>
     </Collapsible.Trigger>
@@ -149,32 +149,31 @@ export const NavLinkCollapsibleContent: FC<{ children: ReactNode }> = ({
   const isOpen = useContext(CollapsibleIsOpenContext);
 
   return (
-    <Transition show={isOpen} data-root-transition>
-      <Collapsible.Content forceMount>
+    <Collapsible.Content forceMount>
+      <Transition
+        show={isOpen}
+        as="div"
+        className="grid overflow-hidden py-1 pl-4"
+        enter="transition-[grid-template-rows]"
+        enterFrom="grid-rows-[0fr]"
+        enterTo="grid-rows-[1fr]"
+        leave="transition-[grid-template-rows]"
+        leaveFrom="grid-rows-[1fr]"
+        leaveTo="grid-rows-[0fr]"
+      >
         <Transition.Child
           as="div"
-          className="grid overflow-hidden py-1 pl-4"
-          enter="transition-[grid-template-rows]"
-          enterFrom="grid-rows-[0fr]"
-          enterTo="grid-rows-[1fr]"
-          leave="transition-[grid-template-rows]"
-          leaveFrom="grid-rows-[1fr]"
-          leaveTo="grid-rows-[0fr]"
+          className="min-h-0"
+          enter="transition-[visibility]"
+          enterFrom="invisible"
+          enterTo="visible"
+          leave="transition-[visibility]"
+          leaveFrom="visible"
+          leaveTo="invisible"
         >
-          <Transition.Child
-            as="div"
-            className="min-h-0"
-            enter="transition-[visibility]"
-            enterFrom="invisible"
-            enterTo="visible"
-            leave="transition-[visibility]"
-            leaveFrom="visible"
-            leaveTo="invisible"
-          >
-            {children}
-          </Transition.Child>
+          {children}
         </Transition.Child>
-      </Collapsible.Content>
-    </Transition>
+      </Transition>
+    </Collapsible.Content>
   );
 };
