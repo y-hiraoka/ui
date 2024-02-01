@@ -1,4 +1,4 @@
-import { Select } from "@y-hiraoka/ui";
+import { Select } from "@y-hiraoka/ui/components";
 import { FC } from "react";
 
 const sizes = ["sm", "md", "lg"] as const;

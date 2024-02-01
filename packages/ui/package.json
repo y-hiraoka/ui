@@ -5,11 +5,11 @@
   "main": "dist/cjs/index.js",
   "types": "dist/esm/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs",
-      "types": "./dist/esm/index.d.ts",
-      "default": "./dist/esm/index.js"
+    "./components": {
+      "import": "./dist/esm/components/index.js",
+      "require": "./dist/cjs/components/index.cjs",
+      "types": "./dist/esm/components/index.d.ts",
+      "default": "./dist/esm/components/index.js"
     },
     "./tailwindcss": {
       "import": "./dist/esm/tailwindcss/index.js",
@@ -19,10 +19,11 @@
     }
   },
   "scripts": {
-    "build": "tsup --clean & tsc --emitDeclarationOnly",
+    "build": "tsup --clean && tsc --emitDeclarationOnly",
     "dev": "tsup --watch & tsc --watch --emitDeclarationOnly",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "clean": "rimraf dist .turbo"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",

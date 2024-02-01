@@ -1,6 +1,6 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Loading } from "..";
 import { classNames } from "../lib/classnames";
+import { Loading } from ".";
 
 export type ButtonProps = ComponentProps<"button"> & {
   variant?: "outline" | "solid" | "ghost" | "glass";

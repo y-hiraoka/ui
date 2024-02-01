@@ -1,3 +1,5 @@
+"use client";
+
 import * as RadixSwitch from "@radix-ui/react-switch";
 import { FC, ReactNode } from "react";
 import { classNames } from "../lib/classnames";

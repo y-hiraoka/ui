@@ -1,4 +1,4 @@
-import { Loading } from "@y-hiraoka/ui";
+import { Loading } from "@y-hiraoka/ui/components";
 import { FC } from "react";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"] as const;

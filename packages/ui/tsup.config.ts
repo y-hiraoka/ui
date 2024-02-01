@@ -7,9 +7,6 @@ export default defineConfig([
     outDir: "dist/esm",
     target: "es2019",
     bundle: false,
-    banner: {
-      js: '"use client";',
-    },
   },
   {
     format: "cjs",
@@ -17,8 +14,5 @@ export default defineConfig([
     outDir: "dist/cjs",
     target: "es2019",
     bundle: false,
-    banner: {
-      js: '"use client";',
-    },
   },
 ]);

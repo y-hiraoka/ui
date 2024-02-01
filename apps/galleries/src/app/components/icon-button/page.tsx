@@ -1,6 +1,6 @@
 "use client";
 
-import { IconButton, Select, Switch } from "@y-hiraoka/ui";
+import { IconButton, Select, Switch } from "@y-hiraoka/ui/components";
 import { FC, useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 

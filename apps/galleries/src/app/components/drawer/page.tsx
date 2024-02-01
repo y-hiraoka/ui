@@ -3,7 +3,7 @@ import {
   DrawerContent,
   DrawerRoot,
   DrawerTrigger,
-} from "@y-hiraoka/ui";
+} from "@y-hiraoka/ui/components";
 import { FC } from "react";
 
 const Page: FC = () => {
