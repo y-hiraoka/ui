@@ -73,4 +73,8 @@ const navItems: { name: string; href: string }[] = [
     name: "Drawer",
     href: "/components/drawer",
   },
+  {
+    name: "Dropdown Menu",
+    href: "/components/dropdown-menu",
+  },
 ];

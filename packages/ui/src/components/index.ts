@@ -13,3 +13,14 @@ export {
   type NavLinkCollapsibleTriggerProps,
   type NavLinkCollapsibleRootProps,
 } from "./nav-link";
+export {
+  DropdownMenuRoot,
+  type DropdownMenuRootProps,
+  DropdownMenuContent,
+  type DropdownMenuContentProps,
+  DropdownMenuItem,
+  type DropdownMenuItemProps,
+  DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "./dropdown-menu";

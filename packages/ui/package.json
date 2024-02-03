@@ -3,18 +3,18 @@
   "version": "0.0.0",
   "type": "module",
   "main": "dist/cjs/index.js",
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     "./components": {
       "import": "./dist/esm/components/index.js",
       "require": "./dist/cjs/components/index.cjs",
-      "types": "./dist/esm/components/index.d.ts",
+      "types": "./dist/types/components/index.d.ts",
       "default": "./dist/esm/components/index.js"
     },
     "./tailwindcss": {
       "import": "./dist/esm/tailwindcss/index.js",
       "require": "./dist/cjs/tailwindcss/index.cjs",
-      "types": "./dist/esm/tailwindcss/index.d.ts",
+      "types": "./dist/types/tailwindcss/index.d.ts",
       "default": "./dist/esm/tailwindcss/index.js"
     }
   },
