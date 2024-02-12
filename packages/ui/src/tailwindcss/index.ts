@@ -40,6 +40,7 @@ export const preset = (options: PresetOptions): Config => {
 
   return {
     content: [],
+    darkMode: ["class", '[data-color-mode="dark"]'],
     theme: {
       colors: {
         transparent: defaultColors.transparent,

@@ -1,4 +1,5 @@
 import "./globals.css";
+import { StinUIProvider } from "@y-hiraoka/ui/provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SideNav } from "../components/side-nav";
@@ -16,14 +17,16 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-w-max`}>
-        <div className="grid grid-cols-[auto_1fr]">
-          <div className="p-2">
-            <SideNav />
+      <StinUIProvider>
+        <body className={`${inter.className} min-w-max`}>
+          <div className="grid grid-cols-[auto_1fr]">
+            <div className="p-2">
+              <SideNav />
+            </div>
+            <main className="p-2">{children}</main>
           </div>
-          <main className="p-2">{children}</main>
-        </div>
-      </body>
+        </body>
+      </StinUIProvider>
     </html>
   );
 }

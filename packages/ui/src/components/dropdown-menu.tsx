@@ -64,7 +64,15 @@ export const DropdownMenuContent: FC<DropdownMenuContentProps> = ({
 
   return (
     <RadixDropdownMenu.Portal forceMount>
-      <Transition show={isOpen}>
+      <Transition
+        show={isOpen}
+        enter="transition-opacity"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
         <RadixDropdownMenu.Content
           side={side}
           sideOffset={4}

@@ -24,3 +24,7 @@ export {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "./dropdown-menu";
+export {
+  ColorModeSwitch,
+  type ColorModeSwitchProps,
+} from "./color-mode-switch";

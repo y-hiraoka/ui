@@ -77,4 +77,8 @@ const navItems: { name: string; href: string }[] = [
     name: "Dropdown Menu",
     href: "/components/dropdown-menu",
   },
+  {
+    name: "Color Mode Switch",
+    href: "/components/color-mode-switch",
+  },
 ];
