@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, createContext, useContext, useEffect, useState } from "react";
 import { useMatchMedia } from "../hooks/use-match-media";
 

@@ -1,7 +1,9 @@
 import Color from "color";
 import { Config } from "tailwindcss";
 import defaultColors from "tailwindcss/colors";
+import defaultTheme from "tailwindcss/defaultTheme";
 import { getColors } from "theme-colors";
+import { basePlugin } from "./base";
 import { drawerPlugin } from "./components/drawer";
 import { loadingPlugin } from "./components/loading";
 import { selectHighContrastColors } from "./select-high-contrast-colors";
@@ -15,13 +17,19 @@ type PresetOptions = {
     danger?: string;
     warning?: string;
   };
+  fontFamilies?: {
+    sans?: string[];
+    mono?: string[];
+    serif?: string[];
+  };
 };
 
-export const preset = (options: PresetOptions): Config => {
-  const textPrimary = "#000";
-  const textPrimaryInvert = "#fff";
-  const textSecondary = "#777";
-  // const textSecondaryInvert = "#ddd";
+export const preset = (options: PresetOptions = {}): Config => {
+  const textPrimary = "#2e2e2e";
+  const textPrimaryInvert = "#f0f0f0";
+  const textSecondary = "#6e6e6e";
+  const textPrimaryDark = "#efeeee";
+  const textSecondaryDark = "#b3b3b3";
   const mainColorScale = getColors(options.colors?.main ?? "#805ad5");
   const subColorScale = getColors(options.colors?.sub ?? "#2fd72f");
   const grayColorScale = getColors(options.colors?.gray ?? "#9da7ba");
@@ -74,14 +82,30 @@ export const preset = (options: PresetOptions): Config => {
           "main-high-contrast": mainHighContrastTextColors,
           "sub-high-contrast": subHighContrastTextColors,
           primary: textPrimary,
+          "primary-dark": textPrimaryDark,
           secondary: textSecondary,
+          "secondary-dark": textSecondaryDark,
         },
         aria: {
           "current-page": 'current="page"',
         },
+        fontFamily: {
+          sans: [
+            ...(options.fontFamilies?.sans ?? []),
+            ...defaultTheme.fontFamily.sans,
+          ],
+          mono: [
+            ...(options.fontFamilies?.mono ?? []),
+            ...defaultTheme.fontFamily.mono,
+          ],
+          serif: [
+            ...(options.fontFamilies?.serif ?? []),
+            ...defaultTheme.fontFamily.serif,
+          ],
+        },
       },
     },
-    plugins: [gridAutoLayoutPlugin, loadingPlugin, drawerPlugin],
+    plugins: [basePlugin, gridAutoLayoutPlugin, loadingPlugin, drawerPlugin],
   };
 };
 

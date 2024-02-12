@@ -22,7 +22,7 @@ export const ColorModeSwitch: FC<ColorModeSwitchProps> = ({
   return (
     <RadioGroup.Root
       className={classNames(
-        "inline-grid grid-cols-3 grid-rows-1 items-center w-max border rounded-full shadow-inner bg-gray-50 isolate",
+        "inline-grid grid-cols-3 grid-rows-1 items-center w-max border rounded-full isolate shadow-inner bg-gray-50 border-gray-300 dark:bg-gray-900 dark:border-gray-800",
         {
           sm: "p-0.5",
           md: "p-1",
@@ -47,9 +47,9 @@ export const ColorModeSwitch: FC<ColorModeSwitchProps> = ({
             lg: "h-10 w-10",
           }[size],
           {
-            main: "bg-main-200",
-            sub: "bg-sub-200",
-            normal: "bg-gray-200",
+            main: "bg-main-500/30 border border-main-500/60",
+            sub: "bg-sub-500/30 border border-sub-500/60",
+            normal: "bg-gray-500/30 border border-gray-500/60",
           }[color],
         )}
       />
@@ -58,15 +58,15 @@ export const ColorModeSwitch: FC<ColorModeSwitchProps> = ({
           value={mode}
           key={mode}
           className={classNames(
-            "z-10 rounded-full cursor-pointer inline-grid place-items-center leading-none text-gray-700 row-start-1",
+            "z-10 rounded-full cursor-pointer inline-grid place-items-center leading-none text-gray-700 row-start-1 dark:text-gray-300",
             {
               sm: "h-6 w-6 text-sm",
               md: "h-8 w-8 text-lg",
               lg: "h-10 w-10 text-xl",
             }[size],
             {
-              main: "data-[state=checked]:text-main-700",
-              sub: "data-[state=checked]:text-sub-700",
+              main: "data-[state=checked]:text-main-700 dark:data-[state=checked]:text-main-300",
+              sub: "data-[state=checked]:text-sub-700 dark:data-[state=checked]:text-sub-300",
               normal: "",
             }[color],
             {
