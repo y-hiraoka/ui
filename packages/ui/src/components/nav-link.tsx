@@ -41,10 +41,10 @@ export const NavLink = forwardRef(function NavLink(
       {...rest}
       ref={ref}
       className={classNames(
-        "text-sm font-medium leading-none flex aria-current-page:font-bold h-9 w-full items-center transition-colors hover:bg-gray-500/10 rounded-e-full",
+        "text-sm font-medium leading-none flex aria-current-page:font-bold h-9 w-full items-center transition-colors hover:bg-gray-500/10 rounded-e-full text-primary dark:text-primary-dark",
         isInnerCollapsible
-          ? "pl-4 pr-3 border-l-2 aria-current-page:border-main-400 aria-current-page:text-main-500"
-          : "px-3 aria-current-page:bg-main-500/20 aria-current-page:text-main-700",
+          ? "pl-4 pr-3 border-l-2 aria-current-page:border-main-400 aria-current-page:text-main-500 dark:border-gray-800 dark:aria-current-page:border-main-500 dark:aria-current-page:text-main-400"
+          : "px-3 aria-current-page:bg-main-500/20 aria-current-page:text-main-700 dark:aria-current-page:text-main-300",
         className,
       )}
       aria-current={isCurrent ? "page" : undefined}
@@ -124,7 +124,7 @@ export const NavLinkCollapsibleTrigger = (({
         {...rest}
         className={classNames(
           "text-sm font-medium flex h-9 w-full px-3 items-center hover:bg-gray-500/10 rounded-e-full transition-colors justify-between",
-          "aria-[current=true]:font-bold aria-[current=true]:bg-main-500/20 aria-[current=true]:text-main-700",
+          "aria-[current=true]:font-bold aria-[current=true]:bg-main-500/20 aria-[current=true]:text-main-700 dark:aria-[current=true]:text-main-300",
           className,
         )}
         aria-current={isCurrent}

@@ -3,6 +3,7 @@ import { Config } from "tailwindcss";
 import defaultColors from "tailwindcss/colors";
 import defaultTheme from "tailwindcss/defaultTheme";
 import { getColors } from "theme-colors";
+import { COLOR_CONSTANTS } from "../lib/color-constants";
 import { basePlugin } from "./base";
 import { drawerPlugin } from "./components/drawer";
 import { loadingPlugin } from "./components/loading";
@@ -14,6 +15,7 @@ type PresetOptions = {
     main?: string;
     sub?: string;
     gray?: string;
+    success?: string;
     danger?: string;
     warning?: string;
   };
@@ -25,16 +27,29 @@ type PresetOptions = {
 };
 
 export const preset = (options: PresetOptions = {}): Config => {
-  const textPrimary = "#2e2e2e";
-  const textPrimaryInvert = "#f0f0f0";
-  const textSecondary = "#6e6e6e";
-  const textPrimaryDark = "#efeeee";
-  const textSecondaryDark = "#b3b3b3";
-  const mainColorScale = getColors(options.colors?.main ?? "#805ad5");
-  const subColorScale = getColors(options.colors?.sub ?? "#2fd72f");
-  const grayColorScale = getColors(options.colors?.gray ?? "#9da7ba");
-  const dangerColorScale = getColors(options.colors?.danger ?? "#dc1010");
-  const warningColorScale = getColors(options.colors?.warning ?? "#efc338");
+  const textPrimary = COLOR_CONSTANTS.text.primary;
+  const textPrimaryInvert = COLOR_CONSTANTS.text.primaryInvert;
+  const textSecondary = COLOR_CONSTANTS.text.secondary;
+  const textPrimaryDark = COLOR_CONSTANTS.text.primaryDark;
+  const textSecondaryDark = COLOR_CONSTANTS.text.secondaryDark;
+  const mainColorScale = getColors(
+    options.colors?.main ?? COLOR_CONSTANTS.theme.main,
+  );
+  const subColorScale = getColors(
+    options.colors?.sub ?? COLOR_CONSTANTS.theme.sub,
+  );
+  const grayColorScale = getColors(
+    options.colors?.gray ?? COLOR_CONSTANTS.theme.gray,
+  );
+  const successColorScale = getColors(
+    options.colors?.success ?? COLOR_CONSTANTS.theme.success,
+  );
+  const dangerColorScale = getColors(
+    options.colors?.danger ?? COLOR_CONSTANTS.theme.danger,
+  );
+  const warningColorScale = getColors(
+    options.colors?.warning ?? COLOR_CONSTANTS.theme.warning,
+  );
   const mainHighContrastTextColors = selectHighContrastColors(
     mainColorScale,
     textPrimary,
@@ -67,6 +82,10 @@ export const preset = (options: PresetOptions = {}): Config => {
         gray: colorRecordToCssVarRecord(
           grayColorScale,
           (key) => `--stui-c-gray-${key}`,
+        ),
+        success: colorRecordToCssVarRecord(
+          successColorScale,
+          (key) => `--stui-c-success-${key}`,
         ),
         danger: colorRecordToCssVarRecord(
           dangerColorScale,

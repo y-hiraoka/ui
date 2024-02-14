@@ -17,6 +17,12 @@
       "types": "./dist/types/providers.d.ts",
       "default": "./dist/esm/providers.js"
     },
+    "./theme": {
+      "import": "./dist/esm/theme/index.js",
+      "require": "./dist/cjs/theme/index.cjs",
+      "types": "./dist/types/theme/index.d.ts",
+      "default": "./dist/esm/theme/index.js"
+    },
     "./tailwindcss": {
       "import": "./dist/esm/tailwindcss/index.js",
       "require": "./dist/cjs/tailwindcss/index.cjs",

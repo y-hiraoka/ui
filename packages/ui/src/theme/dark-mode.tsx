@@ -1,6 +1,7 @@
 "use client";
 
-import { FC, createContext, useContext, useEffect, useState } from "react";
+import { FC, createContext, useContext, useEffect } from "react";
+import { useLocalStorage } from "../hooks/use-local-storage";
 import { useMatchMedia } from "../hooks/use-match-media";
 
 export type ColorMode = "light" | "dark" | "system";
@@ -14,9 +15,7 @@ export type ColorModeContextType = {
   setColorMode: (colorMode: ColorMode) => void;
 };
 
-export const ColorModeContext = createContext<ColorModeContextType | null>(
-  null,
-);
+const ColorModeContext = createContext<ColorModeContextType | null>(null);
 
 export const useColorMode = (): ColorModeContextType => {
   const context = useContext(ColorModeContext);
@@ -30,9 +29,11 @@ export const ColorModeProvider: FC<{
   defaultColorMode: ColorMode | undefined;
   children: React.ReactNode;
 }> = ({ children, defaultColorMode }) => {
-  const [colorMode, setColorMode] = useState<ColorMode>(
-    defaultColorMode || "system",
-  );
+  const [colorMode, setColorMode] = useLocalStorage<ColorMode>({
+    defaultState: defaultColorMode || "system",
+    isValidValue: isColorMode,
+    storageKey: "stui-color-mode",
+  });
 
   return (
     <ColorModeContext.Provider value={{ colorMode, setColorMode }}>

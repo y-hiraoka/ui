@@ -11,23 +11,29 @@ import { usePathname } from "next/navigation";
 import { FC } from "react";
 
 export const SideNav: FC = () => {
+  const pathname = usePathname();
+
   return (
     <nav className="w-52 border rounded">
-      <ul>
-        {navItems.map((item) => (
-          <li key={item.href}>
-            <SideNavLink href={item.href} name={item.name} />
-          </li>
-        ))}
-      </ul>
+      {navItems.map((item) => (
+        <SideNavLink key={item.href} href={item.href} name={item.name} />
+      ))}
       <NavLinkCollapsibleRoot>
-        <NavLinkCollapsibleTrigger isCurrent>
-          Test Collapsible
+        <NavLinkCollapsibleTrigger
+          isCurrent={pathname.startsWith("/components/theme-colors")}
+        >
+          Theme Colors
         </NavLinkCollapsibleTrigger>
         <NavLinkCollapsibleContent>
-          {navItems.map((item) => (
-            <SideNavLink key={item.href} href={item.href} name={item.name} />
-          ))}
+          {["main", "sub", "gray", "success", "danger", "warning"].map(
+            (color) => (
+              <SideNavLink
+                key={color}
+                href={`/components/theme-colors/${color}`}
+                name={color}
+              />
+            ),
+          )}
         </NavLinkCollapsibleContent>
       </NavLinkCollapsibleRoot>
     </nav>
