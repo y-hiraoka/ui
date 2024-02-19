@@ -64,7 +64,7 @@ export const DrawerContent: FC<{
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-black/20" />
+          <Dialog.Overlay className="fixed inset-0 bg-black/20 dark:bg-white/20" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -76,7 +76,7 @@ export const DrawerContent: FC<{
           leaveTo="-translate-x-full"
         >
           <Dialog.Content className="fixed left-0 top-0 z-20 h-screen w-72 p-2">
-            <div className="relative size-full rounded-md bg-white p-2 shadow">
+            <div className="relative size-full rounded-md bg-white p-2 shadow dark:bg-gray-950">
               <Dialog.Title className="sr-only">{drawerTitle}</Dialog.Title>
               <Dialog.Description className="sr-only">
                 {drawerDescription}

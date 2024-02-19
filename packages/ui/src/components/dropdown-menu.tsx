@@ -78,7 +78,7 @@ export const DropdownMenuContent: FC<DropdownMenuContentProps> = ({
           sideOffset={4}
           align={align}
           alignOffset={4}
-          className="w-max rounded-md border bg-white p-1 shadow-xl"
+          className="w-max rounded-md border bg-white p-1 shadow-xl dark:border-gray-700 dark:bg-gray-950 dark:shadow-2xl"
         >
           {children}
         </RadixDropdownMenu.Content>
@@ -106,7 +106,7 @@ export const DropdownMenuItem = (({
       <Component
         {...props}
         disabled={isDisabled || props.disabled}
-        className="group flex h-8 w-full min-w-40 cursor-pointer items-center justify-between space-x-2 rounded px-3 text-start text-sm leading-none outline-none transition-colors disabled:cursor-not-allowed disabled:opacity-50 data-[highlighted]:bg-main-500 data-[highlighted]:text-main-high-contrast-500"
+        className="group flex h-8 w-full min-w-40 cursor-pointer items-center justify-between space-x-2 rounded px-3 text-start text-sm leading-none text-primary outline-none transition-colors disabled:cursor-not-allowed disabled:opacity-50 data-[highlighted]:bg-main-500 data-[highlighted]:text-main-high-contrast-500 dark:text-primary-dark"
       >
         {startIcon && (
           <span className="text-base text-secondary transition-colors group-data-[highlighted]:text-main-high-contrast-500">
@@ -125,12 +125,14 @@ export const DropdownMenuLabel: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   return (
-    <RadixDropdownMenu.Label className="px-2 py-1 text-xs font-semibold text-secondary">
+    <RadixDropdownMenu.Label className="px-2 py-1 text-xs font-semibold text-secondary dark:text-secondary-dark">
       {children}
     </RadixDropdownMenu.Label>
   );
 };
 
 export const DropdownMenuSeparator: FC = () => {
-  return <RadixDropdownMenu.Separator className="mx-2 my-1 border-t" />;
+  return (
+    <RadixDropdownMenu.Separator className="mx-2 my-1 border-t dark:border-gray-700" />
+  );
 };
