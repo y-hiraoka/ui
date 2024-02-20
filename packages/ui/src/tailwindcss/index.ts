@@ -105,6 +105,9 @@ export const preset = (options: PresetOptions = {}): Config => {
           secondary: textSecondary,
           "secondary-dark": textSecondaryDark,
         },
+        backgroundColor: ({ theme }) => ({
+          base: theme("colors.white"),
+        }),
         aria: {
           "current-page": 'current="page"',
         },

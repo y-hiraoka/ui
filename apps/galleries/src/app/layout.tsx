@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ColorModeSwitch, Header } from "@y-hiraoka/ui/components";
 import { StinUIProvider } from "@y-hiraoka/ui/provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -19,6 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <StinUIProvider>
         <body className={`${inter.className} min-w-max`}>
+          <Header>
+            <h1 className="text-2xl font-black tracking-tight">Hello Blogs</h1>
+            <ColorModeSwitch />
+          </Header>
           <div className="grid grid-cols-[auto_1fr]">
             <div className="p-2">
               <SideNav />

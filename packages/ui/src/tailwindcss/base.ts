@@ -4,7 +4,7 @@ export const basePlugin = plugin(({ addBase }) => {
   addBase({
     body: {
       color: 'theme("textColor.primary")',
-      backgroundColor: 'theme("colors.white")',
+      backgroundColor: 'theme("backgroundColor.base")',
     },
 
     '[data-color-mode="dark"] body': {

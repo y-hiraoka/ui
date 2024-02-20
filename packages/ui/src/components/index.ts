@@ -28,3 +28,4 @@ export {
   ColorModeSwitch,
   type ColorModeSwitchProps,
 } from "./color-mode-switch";
+export { Header } from "./header";

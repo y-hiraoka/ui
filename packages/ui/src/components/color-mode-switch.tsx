@@ -22,12 +22,7 @@ export const ColorModeSwitch: FC<ColorModeSwitchProps> = ({
   return (
     <RadioGroup.Root
       className={classNames(
-        "inline-grid grid-cols-3 grid-rows-1 items-center w-max border rounded-full isolate shadow-inner bg-gray-50 border-gray-300 dark:bg-gray-900 dark:border-gray-800",
-        {
-          sm: "p-0.5",
-          md: "p-1",
-          lg: "p-1",
-        }[size],
+        "grid grid-cols-3 grid-rows-1 items-center w-max border rounded-full isolate shadow-inner p-0.5 bg-gray-50 border-gray-300 dark:bg-gray-900 dark:border-gray-800",
         className,
       )}
       value={colorMode}
@@ -35,17 +30,12 @@ export const ColorModeSwitch: FC<ColorModeSwitchProps> = ({
     >
       <span
         className={classNames(
-          "rounded-full row-start-1 col-start-1 transition-transform z-0 shadow",
+          "rounded-full row-start-1 col-start-1 transition-transform z-0 shadow aspect-square h-full",
           {
             light: "transform translate-x-0",
             system: "transform translate-x-[100%]",
             dark: "transform translate-x-[200%]",
           }[colorMode],
-          {
-            sm: "h-6 w-6",
-            md: "h-8 w-8",
-            lg: "h-10 w-10",
-          }[size],
           {
             main: "bg-main-500/30 border border-main-500/60",
             sub: "bg-sub-500/30 border border-sub-500/60",
@@ -60,9 +50,9 @@ export const ColorModeSwitch: FC<ColorModeSwitchProps> = ({
           className={classNames(
             "z-10 rounded-full cursor-pointer inline-grid place-items-center leading-none text-gray-700 row-start-1 dark:text-gray-300",
             {
-              sm: "h-6 w-6 text-sm",
-              md: "h-8 w-8 text-lg",
-              lg: "h-10 w-10 text-xl",
+              sm: "h-[26px] w-[26px] text-sm",
+              md: "h-[34px] w-[34px] text-lg",
+              lg: "h-[42px] w-[42px] text-xl",
             }[size],
             {
               main: "data-[state=checked]:text-main-700 dark:data-[state=checked]:text-main-300",
