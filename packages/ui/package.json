@@ -8,27 +8,27 @@
   ],
   "exports": {
     "./components": {
+      "types": "./dist/types/components/index.d.ts",
       "import": "./dist/esm/components/index.js",
       "require": "./dist/cjs/components/index.cjs",
-      "types": "./dist/types/components/index.d.ts",
       "default": "./dist/esm/components/index.js"
     },
     "./provider": {
+      "types": "./dist/types/providers.d.ts",
       "import": "./dist/esm/providers.js",
       "require": "./dist/cjs/providers.cjs",
-      "types": "./dist/types/providers.d.ts",
       "default": "./dist/esm/providers.js"
     },
     "./theme": {
+      "types": "./dist/types/theme/index.d.ts",
       "import": "./dist/esm/theme/index.js",
       "require": "./dist/cjs/theme/index.cjs",
-      "types": "./dist/types/theme/index.d.ts",
       "default": "./dist/esm/theme/index.js"
     },
     "./tailwindcss": {
+      "types": "./dist/types/tailwindcss/index.d.ts",
       "import": "./dist/esm/tailwindcss/index.js",
       "require": "./dist/cjs/tailwindcss/index.cjs",
-      "types": "./dist/types/tailwindcss/index.d.ts",
       "default": "./dist/esm/tailwindcss/index.js"
     }
   },
