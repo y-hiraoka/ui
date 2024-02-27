@@ -2,7 +2,8 @@ import { ComponentProps, ReactNode, forwardRef } from "react";
 import { classNames } from "../lib/classnames";
 import { Loading } from ".";
 
-export type ButtonProps = ComponentProps<"button"> & {
+export type ButtonProps<Comp extends React.ElementType = "button"> = {
+  component?: Comp;
   variant?: "outline" | "solid" | "ghost" | "glass";
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   color?: "main" | "sub" | "normal" | "danger";
@@ -11,11 +12,13 @@ export type ButtonProps = ComponentProps<"button"> & {
   isLoading?: boolean;
   fullWidth?: boolean;
   justify?: "start" | "center" | "end" | "between";
-};
+  className?: string;
+} & ComponentProps<Comp>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
     {
+      component: Component = "button",
       variant = "solid",
       size = "md",
       color = "normal",
@@ -30,7 +33,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) {
     return (
-      <button
+      <Component
         {...props}
         ref={ref}
         className={classNames(
@@ -87,7 +90,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         disabled={isLoading || props.disabled}
         // eslint-disable-next-line react/button-has-type
-        type={props.type ?? "button"}
+        type={Component === "button" ? props.type ?? "button" : props.type}
       >
         {startIcon && (
           <span style={{ opacity: isLoading ? 0 : undefined }}>
@@ -103,7 +106,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <Loading color={color} size={size} />
           </span>
         )}
-      </button>
+      </Component>
     );
   },
-);
+) as <Comp extends React.ElementType = "button">(
+  props: ButtonProps<Comp>,
+) => JSX.Element;

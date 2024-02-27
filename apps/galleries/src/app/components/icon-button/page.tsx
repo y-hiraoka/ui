@@ -1,6 +1,7 @@
 "use client";
 
 import { IconButton, Select, Switch } from "@y-hiraoka/ui/components";
+import Link from "next/link";
 import { FC, useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 
@@ -61,14 +62,25 @@ const Page: FC = () => {
         </label>
         <Switch label="isDisabled" onCheckedChange={setIsDisabled} />
       </form>
-      <IconButton
-        className="mt-8"
-        variant={variant}
-        size={size}
-        color={color}
-        icon={<FaTwitter />}
-        disabled={isDisabled}
-      />
+      <div className="flex space-x-4">
+        <IconButton
+          className="mt-8"
+          variant={variant}
+          size={size}
+          color={color}
+          icon={<FaTwitter />}
+          disabled={isDisabled}
+        />
+        <IconButton
+          component={Link}
+          href="/"
+          className="mt-8"
+          variant={variant}
+          size={size}
+          color={color}
+          icon={<FaTwitter />}
+        />
+      </div>
     </div>
   );
 };

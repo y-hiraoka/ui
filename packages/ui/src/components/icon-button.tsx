@@ -1,20 +1,28 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { classNames } from "../lib/classnames";
 
-export type IconButtonProps = Omit<ComponentProps<"button">, "children"> & {
+export type IconButtonProps<Comp extends React.ElementType = "button"> = {
+  component?: Comp;
   variant?: "outline" | "solid" | "ghost" | "glass";
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   color?: "main" | "sub" | "normal" | "danger";
   icon: ReactNode;
-};
+} & Omit<ComponentProps<Comp>, "children">;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(
-    { variant = "solid", size = "md", color = "normal", icon, ...props },
+    {
+      component: Component = "button",
+      variant = "solid",
+      size = "md",
+      color = "normal",
+      icon,
+      ...props
+    },
     ref,
   ) {
     return (
-      <button
+      <Component
         {...props}
         ref={ref}
         className={classNames(
@@ -63,10 +71,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           props.className,
         )}
         // eslint-disable-next-line react/button-has-type
-        type={props.type ?? "button"}
+        type={Component === "button" ? props.type ?? "button" : props.type}
       >
         <span>{icon}</span>
-      </button>
+      </Component>
     );
   },
-);
+) as <Comp extends React.ElementType = "button">(
+  props: IconButtonProps<Comp> & { ref?: React.Ref<HTMLButtonElement> },
+) => JSX.Element;

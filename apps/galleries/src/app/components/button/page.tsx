@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Select, Switch } from "@y-hiraoka/ui/components";
+import Link from "next/link";
 import { FC, useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 
@@ -84,20 +85,35 @@ const Page: FC = () => {
           </Select>
         </label>
       </form>
-      <Button
-        className="mt-8"
-        variant={variant}
-        size={size}
-        color={color}
-        startIcon={hasStartIcon ? <FaTwitter /> : undefined}
-        endIcon={hasEndIcon ? <FaTwitter /> : undefined}
-        isLoading={isLoading}
-        disabled={isDisabled}
-        fullWidth={fullWidth}
-        justify={justify}
-      >
-        Component
-      </Button>
+      <div className="mt-8 flex gap-4">
+        <Button
+          variant={variant}
+          size={size}
+          color={color}
+          startIcon={hasStartIcon ? <FaTwitter /> : undefined}
+          endIcon={hasEndIcon ? <FaTwitter /> : undefined}
+          isLoading={isLoading}
+          disabled={isDisabled}
+          fullWidth={fullWidth}
+          justify={justify}
+        >
+          Component
+        </Button>
+        <Button
+          component={Link}
+          href="/"
+          variant={variant}
+          size={size}
+          color={color}
+          startIcon={hasStartIcon ? <FaTwitter /> : undefined}
+          endIcon={hasEndIcon ? <FaTwitter /> : undefined}
+          isLoading={isLoading}
+          fullWidth={fullWidth}
+          justify={justify}
+        >
+          With component
+        </Button>
+      </div>
     </div>
   );
 };
