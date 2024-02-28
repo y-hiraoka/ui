@@ -108,6 +108,10 @@ export const preset = (options: PresetOptions = {}): Config => {
         backgroundColor: ({ theme }) => ({
           base: theme("colors.white"),
         }),
+        borderColor: ({ theme }) => ({
+          DEFAULT: theme("colors.gray.300"),
+          dark: theme("colors.gray.700"),
+        }),
         aria: {
           "current-page": 'current="page"',
         },
