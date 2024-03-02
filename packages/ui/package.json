@@ -1,6 +1,6 @@
 {
   "name": "@y-hiraoka/ui",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist",
@@ -58,9 +58,6 @@
     "type": "git",
     "url": "https://github.com/y-hiraoka/ui.git",
     "directory": "packages/ui"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
